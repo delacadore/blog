@@ -4,4 +4,6 @@ public/bower_components
 public/posts
 public/*.css
 public/*.html
+!public/ga.html
+!public/googleca77a3c8b1ee82be.html
 public/*.svg
