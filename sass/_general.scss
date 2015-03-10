@@ -1,0 +1,44 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: Merriweather, sans-serif;
+    font-size: 0;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    color: $highlight;
+}
+
+figure {
+    margin: 0;
+}
+
+.video-container {
+    margin: 1em 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    &--youtube { padding-top: 30px; }
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.image-container {
+    margin: 1em 0;
+    max-width: 480px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

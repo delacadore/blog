@@ -1,0 +1,7 @@
+.sass-cache
+node_modules
+public/bower_components
+public/posts
+public/*.css
+public/*.html
+public/*.svg

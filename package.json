@@ -1,0 +1,15 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-sass": "~1.3.3",
+    "gulp-svgstore": "~5.0.0",
+    "gulp-watch": "~4.1.1",
+    "node-bourbon": "~4.2.1-beta1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liamness/blog.git"
+  }
+}

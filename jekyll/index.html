@@ -1,0 +1,108 @@
+---
+layout: default
+---
+<body class="frontpage">
+    <header class="main-header">
+        <hgroup>
+            <h1>Hello, I'm Liam!</h1>
+            <h2>I make things with code, things such as these</h2>
+        </hgroup>
+        <span class="scroll-arrow">
+            <svg class="icon"><use xlink:href="icons.svg#chevron-down"/></svg>
+        </span>
+    </header>
+
+    <ul class="posts">
+        {% for post in site.posts %}
+        <li class="post-button__wrap"><a href="{{post.url}}">
+            <section class="post-button">
+                <figure><img src="images/{{post.featured-image}}"></figure>
+                <article>
+                    <h1>{{post.title}}</h1>
+                    {{ post.content | strip_html }}
+                </article>
+            </section>
+        </a></li>
+        {% endfor %}
+    </ul>
+
+    <footer class="footer">
+        <a href="mailto:liam.p.duffy@gmail.com" class="contact-link">
+            <svg class="icon"><use xlink:href="icons.svg#email"/></svg>
+        </a>
+        <a href="http://github.com/liamness/" class="contact-link">
+            <svg class="icon"><use xlink:href="icons.svg#github"/></svg>
+        </a>
+        <a href="http://uk.linkedin.com/pub/liam-duffy/66/573/12b/" class="contact-link">
+            <svg class="icon"><use xlink:href="icons.svg#linkedin"/></svg>
+        </a>
+        <a href="http://twitter.com/liamness" class="contact-link">
+            <svg class="icon"><use xlink:href="icons.svg#twitter"/></svg>
+        </a>
+    </footer>
+
+    <script type="text/javascript">
+        // setup for scroll button
+        var scrollAmount = 0;
+        var scrollDuration = 0.5;
+        var scrollStart, scrollLast;
+
+        // work out what our scrollable element is
+        var header = document.querySelector('.main-header');
+        header.style.height = '2000px';
+        var startingY = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+        window.scrollTo(0, startingY + 1);
+        var scrollTopElement = document.documentElement.scrollTop === (startingY + 1) ? document.documentElement : document.body;
+        window.scrollTo(0, startingY);
+        header.style.height = '';
+
+        var lastTime = 0;
+        var vendors = ['ms', 'moz', 'webkit', 'o'];
+        for(var x = 0; x < vendors.length && !requestAnimationFrame; ++x) {
+            requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+            cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+        }
+
+        if (!requestAnimationFrame) {
+                requestAnimationFrame = function(callback, element) {
+                var currTime = new Date().getTime();
+                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                var id = setTimeout(function() {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+
+        if (!cancelAnimationFrame) {
+            cancelAnimationFrame = function(id) {
+                clearTimeout(id);
+            };
+        }
+
+        function startScroll(e) {
+            e.preventDefault();
+            scrollStart = scrollTopElement.scrollTop;
+            scrollEnd = document.querySelector('.main-header').clientHeight;
+            scrollStartTime = Date.now() / 1000;
+            requestAnimationFrame(doScroll);
+        }
+
+        function doScroll() {
+            var delta = ((Date.now() / 1000) - scrollStartTime) / scrollDuration;
+
+            if(delta >= 1) {
+                scrollTopElement.scrollTop = scrollEnd;
+            } else {
+                var eased = delta * delta * (3 - 2 * delta);
+                var newScroll = scrollStart + (eased * (scrollEnd - scrollStart));
+                scrollTopElement.scrollTop = newScroll;
+
+                requestAnimationFrame(doScroll);
+            }
+        }
+
+        document.querySelector('.scroll-arrow').addEventListener('click', startScroll);
+    </script>
+</body>

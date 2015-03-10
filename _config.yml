@@ -1,0 +1,21 @@
+# Site settings
+title: liamness.co.uk
+email: liam.p.duffy@gmail.com
+description: all the liamness a liam could liam
+url: 'http://liamness.co.uk/'
+baseurl: ''
+twitter_username: liamness
+github_username: liamness
+
+# Build settings
+source: jekyll
+destination: public
+keep_files: [
+    bower_components,
+    images,
+    style.css,
+    favicon.ico,
+    icons.svg
+]
+markdown: kramdown
+permalink: 'posts/:year/:month/:day/:title.html'

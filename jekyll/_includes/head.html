@@ -1,0 +1,12 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="liamness, liam duffy, programmer, designer" />
+    <meta name="author" content="liam duffy" />
+    <meta name="dcterms.rights" content="2013 liam paul duffy" />
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel=”shortcut icon” href=”favicon.ico” type=”image/x-icon” />
+    <link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
