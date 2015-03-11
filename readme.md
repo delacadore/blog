@@ -26,7 +26,7 @@ bower install
 gulp
 ```
 
-## Watch
+## Run, watch for changes
 ```
-gulp watch
+gulp serve
 ```

@@ -12,10 +12,14 @@ source: jekyll
 destination: public
 keep_files: [
     bower_components,
+    download,
     images,
+    CNAME,
     style.css,
     favicon.ico,
-    icons.svg
+    icons.svg,
+    ga.html,
+    googleca77a3c8b1ee82be.html
 ]
 markdown: kramdown
 permalink: 'posts/:year/:month/:day/:title.html'
