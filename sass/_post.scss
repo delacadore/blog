@@ -13,9 +13,9 @@
         position: absolute;
         right: 0;
         top: 50%;
-        font-size: $arrowSize;
         color: #fff;
         margin-top: -$arrowSize * 0.5;
+        .icon { font-size: $arrowSize; }
     }
 }
 
@@ -61,8 +61,8 @@
             text-align: right;
         }
         .back-link {
-            font-size: $arrowSize * 2;
             margin-top: -$arrowSize;
+            .icon { font-size: $arrowSize * 2; }
         }
     }
 

@@ -35,8 +35,8 @@
         left: 50%;
         bottom: 0;
         margin-left: -$arrowSize * 0.5;
-        @include animation(bounce 2s infinite);
         cursor: pointer;
+        @include animation(bounce 2s infinite);
         .icon { font-size: $arrowSize; }
     }
 }

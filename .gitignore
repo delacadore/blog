@@ -1,9 +1,12 @@
+.DS_Store
 .sass-cache
+jekyll/_site
 node_modules
 public/bower_components
+public/css
+public/js
 public/posts
-public/*.css
+public/svg
 public/*.html
 !public/ga.html
 !public/googleca77a3c8b1ee82be.html
-public/*.svg

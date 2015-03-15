@@ -9,7 +9,7 @@ github_username: liamness
 
 # Build settings
 source: jekyll
-destination: public
+destination: jekyll/_site
 keep_files: [
     bower_components,
     download,
