@@ -3,8 +3,10 @@ var browserSync = require('browser-sync'),
     colors = require('colors'),
     cp = require('child_process'),
     gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     minifyHtml = require('gulp-minify-html'),
     sass = require('gulp-sass'),
+    stylish = require('jshint-stylish'),
     svgmin = require('gulp-svgmin'),
     svgstore = require('gulp-svgstore'),
     uglify = require('gulp-uglify');
@@ -37,6 +39,13 @@ gulp.task('jekyll', function(done) {
 
             done();
         });
+});
+
+gulp.task('jshint', function(done) {
+    return gulp
+        .src('js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('sass', function(done) {
@@ -79,12 +88,12 @@ gulp.task('uglify', function(done) {
         .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('default', ['jekyll', 'sass', 'svgstore', 'uglify']);
+gulp.task('default', ['jekyll', 'jshint', 'sass', 'svgstore', 'uglify']);
 
 gulp.task('serve', ['default'], function() {
     browserSync({ server: 'public' });
     gulp.watch(['jekyll/**/*.md', 'jekyll/**/*.html'], ['jekyll']);
     gulp.watch('sass/*.scss', ['sass']);
     gulp.watch('icons/*.svg', ['svgstore']);
-    gulp.watch('js/*.js', ['uglify']);
+    gulp.watch('js/*.js', ['jshint', 'uglify']);
 });

@@ -1,7 +1,8 @@
 (function() {
+    'use strict';
+
     // fallback if requestAnimationFrame unavailable
-    var lastTime = 0;
-    requestAnimationFrame = requestAnimationFrame || function(callback) {
+    var lastTime = 0, raf = requestAnimationFrame || function(callback) {
         var curTime = new Date().getTime();
         var timeToCall = Math.max(0, 16 - (curTime - lastTime));
         window.setTimeout(callback, timeToCall);
@@ -9,9 +10,8 @@
     };
 
     // setup for scroll button
-    var scrollAmount = 0;
     var scrollDuration = 0.5;
-    var scrollStart, scrollLast;
+    var scrollStart, scrollEnd, scrollStartTime;
 
     // work out what our scrollable element is
     var header = document.querySelector('.main-header');
@@ -22,14 +22,12 @@
     window.scrollTo(0, startingY);
     header.style.height = '';
 
-    var lastTime = 0;
-
     function startScroll(e) {
         e.preventDefault();
         scrollStart = scrollTopElement.scrollTop;
         scrollEnd = document.querySelector('.main-header').clientHeight;
         scrollStartTime = Date.now() / 1000;
-        requestAnimationFrame(doScroll);
+        doScroll();
     }
 
     function doScroll() {
@@ -42,7 +40,7 @@
             var newScroll = scrollStart + (eased * (scrollEnd - scrollStart));
             scrollTopElement.scrollTop = newScroll;
 
-            requestAnimationFrame(doScroll);
+            raf(doScroll);
         }
     }
 
