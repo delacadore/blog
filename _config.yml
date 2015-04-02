@@ -21,5 +21,7 @@ keep_files: [
     ga.html,
     googleca77a3c8b1ee82be.html
 ]
+kramdown:
+    auto_ids: false
 markdown: kramdown
 permalink: 'posts/:year/:month/:day/:title.html'

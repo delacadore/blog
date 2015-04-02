@@ -29,7 +29,7 @@ gulp.task('jekyll', function(done) {
         .on('close', function(code) {
             if(code === 0) {
                 gulp.src('jekyll/_site/**/*.html')
-                    .pipe(minifyHtml())
+                    .pipe(minifyHtml({ conditionals: true }))
                     .pipe(gulp.dest('public'));
 
                 reload();
