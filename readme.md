@@ -16,9 +16,7 @@ gem install jekyll
 Install [node](http://nodejs.org), then run
 ```
 npm install -g gulp
-npm install -g bower
 npm install
-bower install
 ```
 
 ## Build

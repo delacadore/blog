@@ -1,6 +1,7 @@
 var browserSync = require('browser-sync'),
     reload = browserSync.reload,
     colors = require('colors'),
+    concat = require('gulp-concat'),
     cp = require('child_process'),
     gulp = require('gulp'),
     jshint = require('gulp-jshint'),
@@ -60,7 +61,7 @@ gulp.task('sass', function(done) {
             done();
         })
         .pipe(reload({ stream: true }))
-        .pipe(gulp.dest('public/css'));
+        .pipe(gulp.dest('public'));
 });
 
 gulp.task('svgstore', function() {
@@ -78,14 +79,18 @@ gulp.task('svgstore', function() {
 
 gulp.task('uglify', function(done) {
     return gulp
-        .src('js/*.js')
+        .src([
+            'node_modules/svg4everybody/dist/svg4everybody.js',
+            'js/*.js'
+        ])
+        .pipe(concat('blog.js'))
         .pipe(uglify())
         .on('error', function(error) {
             logError(error);
             done();
         })
         .on('end', reload)
-        .pipe(gulp.dest('public/js'));
+        .pipe(gulp.dest('public'));
 });
 
 gulp.task('default', ['jekyll', 'jshint', 'sass', 'svgstore', 'uglify']);

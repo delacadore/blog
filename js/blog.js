@@ -1,5 +1,14 @@
+/* global svg4everybody */
+
 (function() {
     'use strict';
+
+    // apply svg symbol polyfill
+    svg4everybody();
+
+    // check if we're on the front page
+    var header = document.querySelector('.main-header');
+    if(!header) { return;}
 
     // fallback if requestAnimationFrame unavailable
     var lastTime = 0, raf = requestAnimationFrame || function(callback) {
@@ -14,7 +23,6 @@
     var scrollStart, scrollEnd, scrollStartTime;
 
     // work out what our scrollable element is
-    var header = document.querySelector('.main-header');
     header.style.height = '2000px';
     var startingY = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
     window.scrollTo(0, startingY + 1);
