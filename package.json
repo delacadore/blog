@@ -2,20 +2,22 @@
   "name": "blog",
   "version": "0.0.0",
   "devDependencies": {
-    "browser-sync": "^2.2.3",
+    "browser-sync": "^2.7.5",
     "colors": "~1.0.3",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "~1.9.4",
     "gulp-minify-html": "^1.0.1",
     "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-svgmin": "^1.1.1",
     "gulp-svgstore": "~5.0.0",
     "gulp-uglify": "^1.1.0",
     "jshint-stylish": "~1.0.1",
     "node-bourbon": "~4.2.1-beta1",
     "normalize.css": "^3.0.3",
-    "svg4everybody": "^2.0.0"
+    "svg4everybody": "^2.0.0",
+    "webpack": "^1.12.2"
   },
   "repository": {
     "type": "git",

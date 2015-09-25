@@ -1,4 +1,4 @@
-/* global svg4everybody */
+import svg4everybody from 'svg4everybody';
 
 (function() {
     'use strict';

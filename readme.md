@@ -1,7 +1,7 @@
-# [liamness.co.uk](http://liamness.co.uk)
+# [liamness.co.uk](https://liamness.co.uk)
 
 This is the source for my blog. It uses the static site generator [
-jekyll](http://jekyllrb.com) to generate the html, and the task runner [gulp](http://gulpjs.com/) to do other things.
+jekyll](https://jekyllrb.com) to generate the html, and the task runner [gulp](https://gulpjs.com/) to do other things.
 
 ## Install Dependencies
 
@@ -13,7 +13,7 @@ If on windows, first install ruby, then run the following in an elevated command
 ```
 gem install jekyll
 ```
-Install [node](http://nodejs.org), then run
+Install [node](https://nodejs.org), then run
 ```
 npm install -g gulp
 npm install
